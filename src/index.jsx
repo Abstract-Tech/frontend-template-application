@@ -8,10 +8,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Header, { messages as headerMessages } from '@edx/frontend-component-header';
-import Footer, { messages as footerMessages } from '@edx/frontend-component-footer';
+import Footer from './Components/Footer/Footer';
 
 import appMessages from './i18n';
-import ExamplePage from './example/ExamplePage';
+import LandingPage from './Components/Landing-page/LandingPage';
 
 import './index.scss';
 
@@ -19,7 +19,7 @@ subscribe(APP_READY, () => {
   ReactDOM.render(
     <AppProvider>
       <Header />
-      <ExamplePage />
+      <LandingPage />
       <Footer />
     </AppProvider>,
     document.getElementById('root'),
@@ -34,6 +34,5 @@ initialize({
   messages: [
     appMessages,
     headerMessages,
-    footerMessages,
   ],
 });

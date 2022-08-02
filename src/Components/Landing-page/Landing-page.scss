@@ -1,0 +1,57 @@
+.pgn__card-wrapper-image-cap {
+  max-height: 250px;
+  img {
+    object-fit: cover;
+    max-height: inherit;
+    width: 100%;
+    border-top-left-radius: 0.3125rem;
+    border-top-right-radius: 0.3125rem;
+  }
+}
+.top-btn-container {
+  z-index: 99;
+  right: 10px;
+  position: absolute;
+  .cost-tag-btn {
+    font-size: 12px;
+    border-radius: 20px;
+    color: #ffffff;
+    margin-top: 10px;
+    border: 1px solid #ffffff;
+    font-weight: 700;
+  }
+}
+
+div.card-body {
+  padding: 30px 49px;
+  min-height: 250px;
+  .pgn__card-header {
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.64;
+    letter-spacing: normal;
+    color: #454545;
+  }
+  .pgn__card-section {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    h3 {
+      font-size: 23px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.09;
+      letter-spacing: normal;
+      color: #121212;
+    }
+  }
+  .pgn__card-footer {
+    button {
+      border-radius: 25px;
+      background-color: #ffffff;
+      color: #121212;
+    }
+  }
+}
