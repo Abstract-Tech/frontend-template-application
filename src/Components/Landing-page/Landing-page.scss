@@ -21,10 +21,19 @@
     font-weight: 700;
   }
 }
+div.card {
+  box-shadow: 0 2px 12px 0 rgba(18, 18, 18, 0.12);
+}
 
 div.card-body {
   padding: 30px 49px;
   min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 12px 0 rgba(18, 18, 18, 0.12);
+  @media screen and (max-width: 500px) {
+    padding: 20px;
+  }
   .pgn__card-header {
     font-size: 14px;
     font-weight: normal;
@@ -48,10 +57,92 @@ div.card-body {
     }
   }
   .pgn__card-footer {
+    margin-top: auto;
     button {
       border-radius: 25px;
       background-color: #ffffff;
       color: #121212;
+      font-size: 14px;
+      border: solid 2px #121212;
     }
   }
+}
+
+.course-card {
+  margin-bottom: 30px;
+}
+
+div.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  button.load-more.btn-primary:not(.disabled) {
+    border-radius: 4px;
+    background-color: #25a78e;
+    color: #000;
+    border-color: #25a78e;
+    padding: 15px;
+    margin-top: 60px;
+    &:hover:not(.disabled),
+    &:focus:not(.disabled),
+    &:active(.disabled) {
+      background-color: #25a78e;
+      color: #000;
+      border-color: #25a78e;
+    }
+  }
+}
+
+a.view-more {
+  border-radius: 4px;
+  padding: 15px;
+  background-color: #25a78e;
+  color: #000;
+  border-color: #25a78e;
+
+  &:hover:not(.disabled),
+  &:focus:not(.disabled),
+  &:active(.disabled) {
+    background-color: #25a78e;
+    color: #000;
+    border-color: #25a78e;
+  }
+}
+
+.what-we-do {
+  margin-top: 105px;
+  padding: 124px;
+  text-align: justify;
+  background-color: #ececec;
+  @media screen and (max-width: 767px) {
+    padding: 20px;
+    text-align: left;
+  }
+  h2 {
+    font-size: 40px;
+    margin-bottom: 30px;
+    font-weight: 600;
+    line-height: 1.18;
+    color: #121212;
+  }
+  p {
+    margin-bottom: 40px;
+    font-size: 16px;
+    line-height: 1.56;
+    color: #454545;
+  }
+}
+
+a.card-link:hover * {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+h2.course-title {
+  margin-bottom: 30px;
+}
+
+div.cards-continer,
+div.wrapper-continer {
+  max-width: calc(1280px - 260px);
 }

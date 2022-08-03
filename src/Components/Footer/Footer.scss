@@ -1,5 +1,10 @@
 @import url("http://fonts.cdnfonts.com/css/work-sans");
 
+footer {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
 .colophon > .nav-colophon {
   display: flex;
   flex-wrap: wrap;
@@ -135,4 +140,3 @@ div.footer-container {
   color: #121212;
   font-family: "Work Sans", sans-serif;
 }
-

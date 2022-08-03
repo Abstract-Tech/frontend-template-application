@@ -1,11 +1,9 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { Card } from "@edx/paragon";
-import { breakpoints, useMediaQuery } from "@edx/paragon";
 import { getConfig } from "@edx/frontend-platform";
 
 const CourseCard = (data) => {
-  console.log(data);
   let date = (str) => {
     let unformatData = new Date(str);
     const options = {
@@ -17,7 +15,7 @@ const CourseCard = (data) => {
   };
   return (
     <>
-      <a
+      <a className="card-link"
         href={
           getConfig().LMS_BASE_URL + "/courses/" + data.course_id + "/about"
         }

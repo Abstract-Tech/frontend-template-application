@@ -3,61 +3,73 @@ import logo from "@edx/brand/logo.svg";
 import { Button, Container, Col } from "@edx/paragon";
 import Row from "react-bootstrap/Row";
 import axios from "axios";
+import { slice, concat } from "lodash";
+
+import { getConfig } from "@edx/frontend-platform";
 
 import CourseCard from "../cards/Card";
+import AboutUS from "../About-us/AboutUs";
 
 import img from "../../assets/photo-1496267472830-2eb2b7e0942d.jpeg";
 
 import "./Landing-page.scss";
 
+const URL_Courses = getConfig().LMS_BASE_URL + "/api/courses/v1/courses/";
+
+const LIMIT = 4;
+
 const LandingPage = () => {
+  const [showMore, setShowMore] = useState(true);
   const [data, setData] = useState(null);
-  const [courseCount, setCourseCount] = useState(4);
+  const [index, setIndex] = useState(LIMIT);
+
 
   const update_data = async function () {
-    const LOCAL_DOMAINS = ["localhost", "127.0.0.1"];
-    let BASE_URL_PUBLIC = "";
-
-    /* offline */
-    if (LOCAL_DOMAINS.includes(window.location.hostname)) {
-      BASE_URL_PUBLIC =
-        "http://edx-new-theme.localhost/api/courses/v1/courses/";
-    } else {
-      /* online || production && staging */
-      BASE_URL_PUBLIC = "/api/courses/v1/courses/";
-    }
-
-    const result = await axios(BASE_URL_PUBLIC, {
+    const result = await axios(URL_Courses, {
       params: { page_size: 100 },
     });
     setData(result.data.results);
   };
 
-  const loadMorePets = () => {
-    setCourseCount(data.length);
+
+  const loadMore = () => {
+    const newIndex = index + LIMIT;
+    const newShowMore = newIndex < data.length;
+    const newList = concat(data, slice(index, newIndex));
+    setIndex(newIndex);
+    setData(newList);
+    setShowMore(newShowMore);
   };
 
   useEffect(() => {
     update_data();
   }, []);
 
+
   return (
     <main>
-      <Container size="xl" className="my-4">
-        <h2>Our courses</h2>
+      <Container className="cards-continer">
+        <h2 className="course-title">Our courses</h2>
         <Row>
-          {data?.slice(0, courseCount).map((data) => (
-            <Col key={data.id} sm={6} xs={12}>
+          {data?.slice(0, index).map((data) => (
+            <Col className="course-card" key={data.id} sm={6} xs={12}>
               <CourseCard key={data.id} {...data} />
             </Col>
           ))}
         </Row>
-        {data?.length > 4 ? (
-          <Button onClick={loadMorePets}>Load more</Button>
+        {data?.length > LIMIT ? (
+          showMore && (
+            <div className="center">
+              <Button className="load-more" onClick={loadMore}>
+                View more
+              </Button>
+            </div>
+          )
         ) : (
           <></>
         )}
       </Container>
+      <AboutUS />
     </main>
   );
 };

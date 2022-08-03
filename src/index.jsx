@@ -7,7 +7,9 @@ import { AppProvider, ErrorPage } from '@edx/frontend-platform/react';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Header, { messages as headerMessages } from '@edx/frontend-component-header';
+import { Header, CourseTabsNavigation } from './Components/Header';
+//import Header, { messages as headerMessages } from '@edx/frontend-component-header';
+
 import Footer from './Components/Footer/Footer';
 
 import appMessages from './i18n';
@@ -33,6 +35,5 @@ subscribe(APP_INIT_ERROR, (error) => {
 initialize({
   messages: [
     appMessages,
-    headerMessages,
   ],
 });
