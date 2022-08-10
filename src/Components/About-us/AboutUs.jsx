@@ -6,7 +6,7 @@ import { Container } from "@edx/paragon";
 const AboutUS = (data) => {
   return (
     <>
-      <div className="what-we-do">
+      <div className="gray-continer">
         <Container className="wrapper-continer">
           <h2>What we do</h2>
           <p>

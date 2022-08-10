@@ -23,14 +23,12 @@ const LandingPage = () => {
   const [data, setData] = useState(null);
   const [index, setIndex] = useState(LIMIT);
 
-
   const update_data = async function () {
     const result = await axios(URL_Courses, {
       params: { page_size: 100 },
     });
     setData(result.data.results);
   };
-
 
   const loadMore = () => {
     const newIndex = index + LIMIT;
@@ -45,9 +43,21 @@ const LandingPage = () => {
     update_data();
   }, []);
 
-
   return (
     <main>
+      <div className="gray-continer-claim">
+        <div className="wrapper-continer">
+          <h1>Build your skills with our online courses</h1>
+          <h5>
+            At vero eos et accusamus et iustio odio dignissimos ducimus qui
+            blanditiis praesentium
+          </h5>
+          <br />
+          <div className="btn-container">
+            <Button variant="success">Explore Courses</Button>
+          </div>
+        </div>
+      </div>
       <Container className="cards-continer">
         <h2 className="course-title">Our courses</h2>
         <Row>

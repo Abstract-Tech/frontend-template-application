@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
 import { useEnterpriseConfig } from "@edx/frontend-enterprise";
 import { getConfig } from "@edx/frontend-platform";
@@ -27,6 +27,7 @@ LinkedLogo.propTypes = {
 };
 
 function Header({ courseOrg, courseNumber, courseTitle, intl }) {
+  const [colorChange, setColorchange] = useState(false);
   const { authenticatedUser } = useContext(AppContext);
 
   const { enterpriseLearnerPortalLink, enterpriseCustomerBrandingConfig } =
@@ -58,24 +59,34 @@ function Header({ courseOrg, courseNumber, courseTitle, intl }) {
     );
   }
 
+  const changeNavbarColor = () => {
+    if (window.scrollY >= 400) {
+      setColorchange(true);
+    } else {
+      setColorchange(false);
+    }
+  };
+  window.addEventListener("scroll", changeNavbarColor);
   return (
-    <Container className="my-4 header-container">
-      <header className="header">
-        <a className="sr-only sr-only-focusable" href="#main-content">
-          {intl.formatMessage(messages.skipNavLink)}
-        </a>
-        <div className="py-2 d-flex align-items-center ">
-          {headerLogo}
-          {authenticatedUser && (
-            <AuthenticatedUserDropdown
-              enterpriseLearnerPortalLink={enterpriseLearnerPortalLink}
-              username={authenticatedUser.username}
-            />
-          )}
-          {!authenticatedUser && <AnonymousUserMenu />}
-        </div>
-      </header>
-    </Container>
+    <div className={colorChange ? "header-color header-wrapper" : ""}>
+      <Container className="my-4 header-container">
+        <header className= "header">
+          <a className="sr-only sr-only-focusable" href="#main-content">
+            {intl.formatMessage(messages.skipNavLink)}
+          </a>
+          <div className="py-2 d-flex align-items-center ">
+            {headerLogo}
+            {authenticatedUser && (
+              <AuthenticatedUserDropdown
+                enterpriseLearnerPortalLink={enterpriseLearnerPortalLink}
+                username={authenticatedUser.username}
+              />
+            )}
+            {!authenticatedUser && <AnonymousUserMenu />}
+          </div>
+        </header>
+      </Container>
+    </div>
   );
 }
 

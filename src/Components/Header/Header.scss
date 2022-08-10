@@ -27,9 +27,7 @@ img.eye-icon {
   margin-right: 15px;
 }
 
-header.course-header
-  .user-dropdown
-  button.dropdown-toggle.btn.btn-outline-primary {
+header.header .user-dropdown button.dropdown-toggle.btn.btn-outline-primary {
   border: none;
   height: auto;
   &::after {
@@ -73,7 +71,10 @@ a.login-button.btn-primary:not(:disabled):not(.disabled):hover {
   color: #121212;
 }
 
-div.header-container{
+div.header-container {
   max-width: 1280px;
   margin: 0 auto;
+  position: fixed;
+  right: 0;
+  left: 0;
 }

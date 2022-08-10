@@ -1,3 +1,5 @@
+@import "../../variables";
+
 .pgn__card-wrapper-image-cap {
   max-height: 250px;
   img {
@@ -77,19 +79,7 @@ div.center {
   justify-content: center;
   align-items: center;
   button.load-more.btn-primary:not(.disabled) {
-    border-radius: 4px;
-    background-color: #25a78e;
-    color: #000;
-    border-color: #25a78e;
-    padding: 15px;
-    margin-top: 60px;
-    &:hover:not(.disabled),
-    &:focus:not(.disabled),
-    &:active(.disabled) {
-      background-color: #25a78e;
-      color: #000;
-      border-color: #25a78e;
-    }
+    @extend .theme-btn;
   }
 }
 
@@ -109,7 +99,7 @@ a.view-more {
   }
 }
 
-.what-we-do {
+.gray-continer {
   margin-top: 105px;
   padding: 124px;
   text-align: justify;
@@ -145,4 +135,20 @@ h2.course-title {
 div.cards-continer,
 div.wrapper-continer {
   max-width: calc(1280px - 260px);
+}
+
+.gray-continer-claim {
+  background-color: #ececec;
+  .wrapper-continer {
+    min-height: 50vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    button {
+      @extend .theme-btn;
+    }
+  }
 }
