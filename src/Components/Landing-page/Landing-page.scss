@@ -135,10 +135,11 @@ h2.course-title {
 div.cards-continer,
 div.wrapper-continer {
   max-width: calc(1280px - 260px);
+  margin: 0 auto;
 }
-
 .gray-continer-claim {
   background-color: #ececec;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   .wrapper-continer {
     min-height: 50vh;
     margin: 0 auto;
@@ -151,4 +152,77 @@ div.wrapper-continer {
       @extend .theme-btn;
     }
   }
+}
+
+.white-continer-claim {
+  background-color: #fff;
+  .wrapper {
+    min-height: 30vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+}
+
+img.course-image {
+  width: 100%;
+}
+
+.course-info-banner {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+button.enroll-button {
+  @extend .theme-btn;
+  margin-top: 0;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+}
+
+.tabitem {
+  border: 2px solid #fff;
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tabitem--inactive {
+  opacity: 0.3;
+}
+
+.tabitem__icon {
+  font-size: 22px;
+}
+
+.tabitem__title {
+  color: #121212;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.content {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 22px;
+}
+
+.tabs-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.about-course-tabs {
+  text-align: left;
 }

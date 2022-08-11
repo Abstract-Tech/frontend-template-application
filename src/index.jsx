@@ -9,22 +9,31 @@ import {
 import { AppProvider, ErrorPage } from "@edx/frontend-platform/react";
 import React from "react";
 import ReactDOM from "react-dom";
+import { Route, Switch } from "react-router-dom";
 
 import { Header, CourseTabsNavigation } from "./Components/Header";
-//import Header, { messages as headerMessages } from '@edx/frontend-component-header';
-
 import Footer from "./Components/Footer/Footer";
 
 import appMessages from "./i18n";
 import LandingPage from "./Components/Landing-page/LandingPage";
+import { getConfig } from "@edx/frontend-platform";
 
 import "./index.scss";
 import "./_variables.scss";
+import NotFoundPage from "./Components/NotFoundPage";
+import About from "./Components/Course_About/Course_about";
+
 subscribe(APP_READY, () => {
   ReactDOM.render(
     <AppProvider>
       <Header />
-      <LandingPage />
+      <main>
+        <Switch>
+          <Route path="/home" component={LandingPage} />
+          <Route path="/courses/:courseId/about" component={About} />
+          <Route path="*" component={NotFoundPage} />
+        </Switch>
+      </main>
       <Footer />
     </AppProvider>,
     document.getElementById("root")
